@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        /* Resetting default margins and paddings for the body */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Styling the navbar */
+        .navbar {
+            background-color: #13beec;
+            padding: 20px;
+            display: flex;
+            justify-content: left;
+        }
+
+        /* Styling the navbar menu */
+        .navbar-menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        /* Styling each navbar item */
+        .navbar-item {
+            margin: 0 15px;
+        }
+
+        /* Styling links within the navbar */
+        .navbar-item a {
+            color: black;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px 10px;
+            display: block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Adding hover effects for links */
+        .navbar-item a:hover {
+            background-color: #f9cb30;
+            color: #ff0;
+            border-radius: 4px;
+        }
+        h1{
+            text-align:center;
+            justify-content:center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            justify-content: center;
+            text-align:center;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid black;
+        }
+        th {
+            background-color: #4CAF50;
+            color:black;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        caption {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        td a {
+            background: green;
+            color: white;
+            border-radius: 5px;
+            padding: 6px; 
+            margin:3px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-menu">
+            <li class="navbar-item"><a href="">Student Management</a></li>
+            <li class="navbar-item"><a href="">Home</a></li>
+            <li class="navbar-item"><a href="/add">Add Student</a></li>
+        </ul>
+    </nav>
+
+    <h1>Student Management</h1>
+    <h1>List of Students</h1>
+
+
+    <table>
+        
+        <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Roll Number</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Number</th>
+                <th>Address</th>
+                <th>Pincode</th>
+                <th>City</th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for s in st %}
+            <tr>
+                <td>{{s.id}}</td>
+                <td>{{s.roll}}</td>
+                <td>{{s.name}}</td>
+                <td>{{s.email}}</td>
+                <td>{{s.num}}</td>
+                <td>{{s.address}}</td>
+                <td>{{s.pincode}}</td>.
+                <td>{{s.city}}</td>
+                <td>
+                    <span>
+                        <a href="/delete/{{s.id}}" class="btn btn-danger md-sm" style="background-color: red; color: white;"> Delete</a>
+                        
+                    <a href="/update/{{s.id}}" class="btn btn-succes md-sm">Update</a>
+                    </span>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+</body>
+</html>
